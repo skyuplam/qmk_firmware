@@ -1,3 +1,5 @@
+# Copyright 2023 Terrence Lam (@skyuplam) <skyuplam@gmail.com>
+
 COMBO_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 EXTRAKEY_ENABLE = yes
