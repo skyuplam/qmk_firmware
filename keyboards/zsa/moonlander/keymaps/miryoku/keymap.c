@@ -17,26 +17,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-
 #include QMK_KEYBOARD_H
 #include "version.h"
+#include "terrencelam.h"
 
 enum layers {
-    U_BASE,  // default layer
-    U_SYM,  // symbols
-    U_NUM,  // numbers
-    U_NAV,  // navigation
+    U_BASE,   // default layer
+    U_SYM,    // symbols
+    U_NUM,    // numbers
+    U_NAV,    // navigation
     U_MEDIA,  // media keys
-    U_MOUSE,  // media keys
-    U_FUN,  // function keys
-    U_BUTTON,  // media keys
+    U_MOUSE,  // mouse keys
+    U_FUN,    // function keys
+    U_BUTTON, // button keys
 };
 
 enum custom_keycodes {
     VRSN = SAFE_RANGE,
 };
-
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -64,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [U_NAV] = LAYOUT(
         KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,                KC_NO,
-        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, KC_AGIN,          S(KC_INS),    C(KC_INS),    S(KC_DEL),      KC_UNDO,              KC_NO,
+        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, U_RDO,            U_PST,        U_CPY,        U_CUT,          U_UND,                KC_NO,
         KC_NO, KC_LGUI,           KC_LALT,      KC_LCTL,          KC_LSFT,             KC_NO, KC_NO,             KC_NO, KC_LEFT,          KC_DOWN,      KC_UP,        KC_RGHT,        CW_TOGG,              KC_NO,
         KC_NO, KC_NO,             KC_ALGR,      KC_NO,            KC_NO,               KC_NO,                           KC_HOME,          KC_PGDN,      KC_PGUP,      KC_END,         KC_INS,               KC_NO,
         KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO,                    KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,
@@ -112,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [U_MOUSE] = LAYOUT(
         KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,                KC_NO,
-        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, KC_AGIN,          S(KC_INS),    C(KC_INS),    S(KC_DEL),      KC_UNDO,              KC_NO,
+        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, U_RDO,            U_PST,        U_CPY,        U_CUT,          U_UND,                KC_NO,
         KC_NO, KC_LGUI,           KC_LALT,      KC_LCTL,          KC_LSFT,             KC_NO, KC_NO,             KC_NO, KC_MS_L,          KC_MS_D,      KC_MS_U,      KC_MS_R,        KC_NO,                KC_NO,
         KC_NO, KC_NO,             KC_ALGR,      KC_NO,            KC_NO,               KC_NO,                           KC_WH_L,          KC_WH_D,      KC_WH_U,      KC_WH_R,        KC_NO,                KC_NO,
         KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO,                    KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,
@@ -149,6 +147,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO,                    KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,
                                                 KC_NO,            KC_NO,               KC_NO,                    KC_NO, KC_MPLY,          KC_MSTP
     ),
+/**
+ * #define MIRYOKU_ALTERNATIVES_BUTTON \
+ * U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+ * KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NU,              U_NU,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+ * U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+ * U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_BTN2,           KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
+ */
+    [U_BUTTON] = LAYOUT(
+        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO, KC_NO,             KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,                KC_NO,
+        KC_NO, U_UND,             U_CUT,        U_CPY,            U_PST,               U_RDO, KC_NO,             KC_NO, U_RDO,            U_PST,        U_CPY,        U_CUT,          U_UND,                KC_NO,
+        KC_NO, KC_LGUI,           KC_LALT,      KC_LCTL,          KC_LSFT,             KC_NO, KC_NO,             KC_NO, KC_NO,            KC_LSFT,      KC_LCTL,      KC_LALT,        KC_LGUI,              KC_NO,
+        KC_NO, U_UND,             U_CUT,        U_CPY,            U_PST,               U_RDO,                           U_RDO,            U_PST,        U_CPY,        U_CUT,          U_UND,                KC_NO,
+        KC_NO, KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO,                    KC_NO, KC_NO,            KC_NO,        KC_NO,        KC_NO,          KC_NO,
+                                                KC_BTN2,          KC_BTN1,             KC_NO,                    KC_NO, KC_BTN1,          KC_BTN2
+    ),
 };
 
 // thumb combos
@@ -160,6 +173,7 @@ const uint16_t PROGMEM thumbcombos_media[] = {KC_MPLY, KC_MSTP, COMBO_END};
 const uint16_t PROGMEM thumbcombos_num[] = {KC_0, KC_MINS, COMBO_END};
 const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_BSPC, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
   COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
   COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
