@@ -176,7 +176,18 @@ const uint16_t PROGMEM thumbcombos_num[]        = {KC_0, KC_MINS, COMBO_END};
 const uint16_t PROGMEM thumbcombos_sym[]        = {KC_RPRN, KC_UNDS, COMBO_END};
 const uint16_t PROGMEM thumbcombos_fun[]        = {KC_SPC, KC_BSPC, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)), COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)), COMBO(thumbcombos_nav, KC_DEL), COMBO(thumbcombos_mouse, KC_BTN3), COMBO(thumbcombos_media, KC_MUTE), COMBO(thumbcombos_num, KC_DOT), COMBO(thumbcombos_sym, KC_LPRN), COMBO(thumbcombos_fun, KC_APP)};
+// clang-format off
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
+    COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
+    COMBO(thumbcombos_nav, KC_DEL),
+    COMBO(thumbcombos_mouse, KC_BTN3),
+    COMBO(thumbcombos_media, KC_MUTE),
+    COMBO(thumbcombos_num, KC_DOT),
+    COMBO(thumbcombos_sym, KC_LPRN),
+    COMBO(thumbcombos_fun, KC_APP),
+};
+// clang-format on
 
 // RGB Matrix
 extern rgb_config_t rgb_matrix_config;
