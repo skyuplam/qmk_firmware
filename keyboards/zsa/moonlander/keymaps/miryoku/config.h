@@ -25,7 +25,7 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
 
-// reduce amoutn to avoid accidentially trigger unwanted auto-repeat
+// reduce amount to avoid accidentally trigger unwanted auto-repeat
 // see https://precondition.github.io/home-row-mods#quick-tap-term
 #define QUICK_TAP_TERM 150
 
@@ -51,5 +51,6 @@
 #define MOUSEKEY_TIME_TO_MAX 64
 
 #define COMBO_COUNT 8
-#define COMBO_TERM 200
+// `COMBO_TERM` must be lesser than the `QUICK_TAP_TERM` in to for the auto-repeat working properly
+#define COMBO_TERM 50
 #define EXTRA_SHORT_COMBOS
