@@ -42,41 +42,55 @@
 #    define U_UND KC_UNDO
 #endif
 
-#define WHITE \
+// Color legend
+
+// Arrow
+#define UC_ARRW \
     { HSV_WHITE }
-#define RED \
+// LT activated
+#define UC_LTD \
     { HSV_RED }
-#define CORAL \
+// Mods
+#define UC_MOD \
     { HSV_CORAL }
-#define ORANGE \
+// Hold Mods
+#define UC_HMOD \
     { HSV_ORANGE }
 #define GOLDENROD \
     { HSV_GOLDENROD }
-#define GOLD \
+// Buttons
+#define UC_BTN \
     { HSV_GOLD }
 #define YELLOW \
     { HSV_YELLOW }
-#define CHARTREUSE \
+#define UC_MUSE \
     { HSV_CHARTREUSE }
-#define GREEN \
+// numbers
+#define UC_NUM \
     { HSV_GREEN }
 #define SPRINGGREEN \
     { HSV_SPRINGGREEN }
 #define TURQUOISE \
     { HSV_TURQUOISE }
-#define TEAL \
+// Navigation keys
+#define UC_NAV \
     { HSV_TEAL }
-#define CYAN \
+// Symbols
+#define UC_SYM \
     { HSV_CYAN }
-#define AZURE \
+// Media
+#define UC_MEDA \
     { HSV_AZURE }
-#define BLUE \
+// Alphabet
+#define UC_ALPH \
     { HSV_BLUE }
-#define PURPLE \
+// LT
+#define UC_LT \
     { HSV_PURPLE }
-#define MAGENTA \
+// Function keys
+#define UC_FUN \
     { HSV_MAGENTA }
 #define PINK \
     { HSV_PINK }
-#define NONE \
+#define UC_OFF \
     { HSV_OFF }
