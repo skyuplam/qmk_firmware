@@ -19,7 +19,7 @@
 
 #include QMK_KEYBOARD_H
 #include "version.h"
-#include "terrencelam.h"
+#include "tlam.h"
 
 enum layers {
     U_BASE,   // default layer
