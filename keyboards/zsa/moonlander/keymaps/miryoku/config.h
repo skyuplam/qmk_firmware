@@ -25,7 +25,13 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
 
+// reduce amoutn to avoid accidentially trigger unwanted auto-repeat
+// see https://precondition.github.io/home-row-mods#quick-tap-term
 #define QUICK_TAP_TERM 150
+
+#define PERMISSIVE_HOLD
+
+#undef HOLD_ON_OTHER_KEY_PRESS
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
