@@ -122,12 +122,206 @@ void keyboard_pre_init_user(void) {
     writePinHigh(24);
 }
 
-// void keyboard_post_init_user(void) {
-//     // Initialize RGB to static black
-//     rgblight_enable_noeeprom();
-//     rgblight_sethsv_noeeprom(HSV_BLACK);
-//     rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-// }
+// RGB Matrix
+extern rgb_config_t rgb_matrix_config;
+
+void keyboard_post_init_user(void) {
+    rgb_matrix_enable();
+}
+
+// clang-format off
+const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
+    [U_BASE] = {
+        UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
+        UC_HMOD, UC_HMOD, UC_HMOD, UC_HMOD, UC_ALPH,
+        UC_LT,   UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
+                                   UC_LT,   UC_LT,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
+        UC_ALPH, UC_HMOD, UC_HMOD, UC_HMOD, UC_HMOD,
+        UC_ALPH, UC_ALPH, UC_SYM,  UC_SYM,  UC_LT,
+        UC_LT,   UC_LT,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_SYM] = {
+        UC_SYM, UC_SYM, UC_SYM, UC_SYM, UC_SYM,
+        UC_SYM, UC_SYM, UC_SYM, UC_SYM, UC_SYM,
+        UC_SYM, UC_SYM, UC_SYM, UC_SYM, UC_SYM,
+                                UC_SYM, UC_SYM,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_MOD, UC_MOD, UC_MOD, UC_MOD,
+        UC_OFF, UC_OFF, UC_OFF, UC_MOD, UC_OFF,
+        UC_LTD, UC_OFF,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_NUM] = {
+        UC_SYM, UC_NUM, UC_NUM, UC_NUM, UC_SYM,
+        UC_SYM, UC_NUM, UC_NUM, UC_NUM, UC_SYM,
+        UC_SYM, UC_NUM, UC_NUM, UC_NUM, UC_SYM,
+                                UC_NUM, UC_SYM,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_MOD, UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_LTD,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_NAV] = {
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_MOD, UC_OFF, UC_OFF, UC_OFF,
+                                UC_LTD, UC_OFF,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_BTN, UC_BTN,  UC_BTN,  UC_BTN,  UC_BTN,
+        UC_ARRW,UC_ARRW, UC_ARRW, UC_ARRW, UC_BTN,
+        UC_NAV, UC_NAV,  UC_NAV,  UC_NAV,  UC_NAV,
+        UC_BTN, UC_BTN,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_MOUSE] = {
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_MOD, UC_OFF, UC_OFF, UC_OFF,
+                                UC_OFF, UC_LTD,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+        UC_MUSE, UC_MUSE, UC_MUSE, UC_MUSE,UC_OFF,
+        UC_MUSE, UC_MUSE, UC_MUSE, UC_MUSE,UC_OFF,
+        UC_MUSE,UC_MUSE,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_MEDIA] = {
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_MOD, UC_OFF, UC_OFF, UC_OFF,
+                                UC_LTD, UC_LTD,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+        UC_MEDA, UC_MEDA, UC_MEDA, UC_MEDA,UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF,    UC_BTN,
+        UC_MEDA,UC_MEDA,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_FUN] = {
+        UC_FUN, UC_FUN, UC_FUN, UC_FUN, UC_FUN,
+        UC_FUN, UC_FUN, UC_FUN, UC_FUN, UC_FUN,
+        UC_FUN, UC_FUN, UC_FUN, UC_FUN, UC_FUN,
+                                UC_BTN, UC_BTN,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF, UC_MOD, UC_OFF,
+        UC_LTD, UC_LTD,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+    [U_BUTTON] = {
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+                                UC_MUSE,UC_MUSE,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+        UC_OFF, UC_MOD, UC_MOD, UC_MOD, UC_MOD,
+        UC_BTN, UC_BTN, UC_BTN, UC_BTN, UC_BTN,
+        UC_MUSE,UC_MUSE,
+
+        UC_OFF, UC_OFF, UC_OFF,
+        UC_OFF, UC_OFF, UC_OFF,
+    },
+};
+// clang-format on
+
+void set_layer_color(int layer) {
+    for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
+        HSV hsv = {
+            .h = pgm_read_byte(&ledmap[layer][i][0]),
+            .s = pgm_read_byte(&ledmap[layer][i][1]),
+            .v = pgm_read_byte(&ledmap[layer][i][2]),
+        };
+        if (!hsv.h && !hsv.s && !hsv.v) {
+            rgb_matrix_set_color(i, 0, 0, 0);
+        } else {
+            RGB   rgb = hsv_to_rgb(hsv);
+            float f   = (float)rgb_matrix_config.hsv.v / UINT8_MAX;
+            rgb_matrix_set_color(i, f * rgb.r, f * rgb.g, f * rgb.b);
+        }
+    }
+}
+
+bool rgb_matrix_indicators_user(void) {
+    // if (keyboard_config.disable_layer_led) {
+    //     return false;
+    // }
+    switch (biton32(layer_state)) {
+        case 0:
+            set_layer_color(0);
+            break;
+        case 1:
+            set_layer_color(1);
+            break;
+        case 2:
+            set_layer_color(2);
+            break;
+        case 3:
+            set_layer_color(3);
+            break;
+        case 4:
+            set_layer_color(4);
+            break;
+        case 5:
+            set_layer_color(5);
+            break;
+        case 6:
+            set_layer_color(6);
+            break;
+        case 7:
+            set_layer_color(7);
+            break;
+        default:
+            if (rgb_matrix_get_flags() == LED_FLAG_NONE) rgb_matrix_set_color_all(0, 0, 0);
+            break;
+    }
+    return true;
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {

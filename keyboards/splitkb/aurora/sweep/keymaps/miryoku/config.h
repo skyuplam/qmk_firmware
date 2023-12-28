@@ -17,8 +17,6 @@
 
 #pragma once
 
-// https://docs.splitkb.com/hc/en-us/articles/5799904122012-Onboard-RGB
-
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
@@ -52,6 +50,10 @@
 // `COMBO_TERM` must be lesser than the `QUICK_TAP_TERM` in to for the auto-repeat working properly
 #define COMBO_TERM 50
 #define EXTRA_SHORT_COMBOS
+
+// RGB Matrix https://docs.qmk.fm/#/feature_rgb_matrix?id=ws2812
+// The pin connected to the data pin of the LEDs
+#define WS2812_DI_PIN D3
 
 // Not yet available in `keymap.json` format
 #ifdef RGB_MATRIX_ENABLE
