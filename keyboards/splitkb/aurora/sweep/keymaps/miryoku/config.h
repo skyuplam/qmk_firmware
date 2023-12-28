@@ -54,6 +54,7 @@
 // RGB Matrix https://docs.qmk.fm/#/feature_rgb_matrix?id=ws2812
 // The pin connected to the data pin of the LEDs
 #define WS2812_DI_PIN D3
+#define SPLIT_LAYER_STATE_ENABLE
 
 // Not yet available in `keymap.json` format
 #ifdef RGB_MATRIX_ENABLE
