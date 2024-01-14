@@ -243,7 +243,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
         UC_OFF, UC_OFF, UC_OFF,
 
         UC_OFF, UC_OFF, UC_OFF, UC_OFF, UC_OFF,
-        UC_MOD, UC_MOD, UC_MOD, UC_MOD, UC_OFF,
+        UC_OFF, UC_MOD, UC_MOD, UC_MOD, UC_MOD,
         UC_OFF, UC_OFF, UC_OFF, UC_MOD, UC_OFF,
         UC_LTD, UC_LTD,
 
