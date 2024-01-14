@@ -38,13 +38,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,              KC_W,         KC_E,             KC_R,             KC_T,                 KC_Y,             KC_U,              KC_I,         KC_O,           KC_P,
         LGUI_T(KC_A),      LALT_T(KC_S), LCTL_T(KC_D),     LSFT_T(KC_F),     KC_G,                 KC_H,             LSFT_T(KC_J),      LCTL_T(KC_K), LALT_T(KC_L),   LGUI_T(KC_SCLN),
         LT(U_BUTTON,KC_Z), ALGR_T(KC_X), KC_C,             KC_V,             KC_B,                 KC_N,             KC_M,              KC_COMM,      ALGR_T(KC_DOT), LT(U_BUTTON,KC_SLSH),
-                                                           LT(U_NAV,KC_SPC), LT(U_MOUSE,KC_BSPC),  LT(U_SYM,KC_TAB), LT(U_NUM,KC_ENT)
+                                                           LT(U_NAV,KC_SPC), LT(U_MOUSE,KC_BSPC),  LT(U_SYM,KC_ENT), LT(U_NUM,KC_TAB)
     ),
     [U_NAV] = LAYOUT(
         KC_NO,             KC_NO,        KC_NO,            KC_NO,               KC_NO,             U_RDO,            U_PST,             U_CPY,        U_CUT,          U_UND,
         KC_LGUI,           KC_LALT,      KC_LCTL,          KC_LSFT,             KC_NO,             KC_LEFT,          KC_DOWN,           KC_UP,        KC_RGHT,        CW_TOGG,
         KC_NO,             KC_ALGR,      KC_NO,            KC_NO,               KC_NO,             KC_HOME,          KC_PGDN,           KC_PGUP,      KC_END,         KC_INS,
-                                                           KC_NO,               KC_NO,             KC_TAB,           KC_ENT
+                                                           KC_NO,               KC_NO,             KC_ENT,           KC_TAB
     ),
     [U_NUM] = LAYOUT(
         KC_LBRC,           KC_7,         KC_8,             KC_9,                KC_RBRC,           KC_NO,            KC_NO,             KC_NO,        KC_NO,          KC_NO,
@@ -92,9 +92,9 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
 // thumb combos
-const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_TAB), LT(U_NUM, KC_ENT), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_ENT), LT(U_NUM, KC_TAB), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[]  = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_BSPC), COMBO_END};
-const uint16_t PROGMEM thumbcombos_nav[]        = {KC_TAB, KC_ENT, COMBO_END};
+const uint16_t PROGMEM thumbcombos_nav[]        = {KC_ENT, KC_TAB, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[]      = {KC_BTN1, KC_BTN2, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[]      = {KC_MPLY, KC_MSTP, COMBO_END};
 const uint16_t PROGMEM thumbcombos_num[]        = {KC_0, KC_MINS, COMBO_END};
