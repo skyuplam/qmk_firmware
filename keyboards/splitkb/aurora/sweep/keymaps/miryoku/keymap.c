@@ -134,7 +134,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [U_BASE] = {
         UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
         UC_HMOD, UC_HMOD, UC_HMOD, UC_HMOD, UC_ALPH,
-        UC_LT,   UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
+        UC_LT,   UC_HMOD, UC_ALPH, UC_ALPH, UC_ALPH,
                                    UC_LT,   UC_LT,
 
         UC_OFF, UC_OFF, UC_OFF,
@@ -142,7 +142,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
         UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH, UC_ALPH,
         UC_ALPH, UC_HMOD, UC_HMOD, UC_HMOD, UC_HMOD,
-        UC_ALPH, UC_ALPH, UC_SYM,  UC_SYM,  UC_LT,
+        UC_ALPH, UC_ALPH, UC_SYM,  UC_HMOD, UC_LT,
         UC_LT,   UC_LT,
 
         UC_OFF, UC_OFF, UC_OFF,
