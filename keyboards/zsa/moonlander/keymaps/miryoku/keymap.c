@@ -18,6 +18,7 @@
  */
 
 #include QMK_KEYBOARD_H
+
 #include "version.h"
 #include "tlam.h"
 
