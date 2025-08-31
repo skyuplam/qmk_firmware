@@ -5,7 +5,7 @@
 
 // Left side (front)
 #define D3 0U
-#define D2 1U
+#define D2 12U
 //      GND
 //      GND
 #define D1 2U
@@ -32,5 +32,5 @@
 #define B6 21U
 
 // LEDs
-#define D5 12U
+#define D5 14U
 #define B0 13U
